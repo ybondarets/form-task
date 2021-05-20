@@ -16,6 +16,7 @@ class QuotesRequest
      * @Assert\NotBlank(message="Start date is required")
      * @Assert\Type("DateTimeInterface")
      * @Assert\LessThanOrEqual("now")
+     * @Assert\LessThanOrEqual(propertyPath="endDate")
      */
     private ?DateTime $startDate = null;
 
@@ -23,6 +24,7 @@ class QuotesRequest
      * @Assert\NotBlank(message="End date is required")
      * @Assert\Type("DateTimeInterface")
      * @Assert\LessThanOrEqual("now")
+     * @Assert\GreaterThanOrEqual(propertyPath="startDate")
      */
     private ?DateTime $endDate = null;
 
