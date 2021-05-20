@@ -10,6 +10,10 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $historicalDataApiKey: "%env(HISTORICAL_API_KEY)%"
+            $historicalDataApiBase: "%env(HISTORICAL_API_BASE_URL)%"
+            $companiesDataApiPath: "%env(COMPANIES_DATA_API)%"
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
